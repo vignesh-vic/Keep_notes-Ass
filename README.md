@@ -1,6 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
+##install node_modules
+
+  npm i
+
+
+
+
 ## Getting Started
 
 First, run the development server:
@@ -17,9 +24,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔐 How to Login or Sign Up in KEEP Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+KEEP Notes uses local storage for handling user authentication in a simple and lightweight way. Here's how it works:
+
+### 📝 1. Registration First
+- A user **must register** first using the Sign Up form.
+- Registration stores the user's data in the browser's `localStorage`.
+
+### 🔓 2. Login After Registration
+- Once registered, the user can **log in** using their credentials.
+- The app verifies the login data against what's stored in `localStorage`.
+
+### 🚪 3. What Happens on Logout?
+- If the user **logs out**, their session is cleared from memory.
+- Since KEEP Notes relies on `localStorage` only (no backend or database),
+  the user will need to **register again** if the data is cleared from storage or if accessed from a different browser or device.
+
+> ⚠️ Note: This is a client-side only demo — do not use for real credentials or production authentication.
+
+
 
 
 ![image alt](https://github.com/vignesh-vic/Keep_notes-Ass/blob/fa6a6eefaa96761202fbcf686e778fd5c49f6de5/Screenshot%202025-06-10%20200409.png)
