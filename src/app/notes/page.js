@@ -23,19 +23,19 @@ const Notes = () => {
 
 
     return (
-        <div>
-            <h1 className='my-10 m-10 text-2xl font-bold'>Good Morning  {savedUser?.username.charAt(0).toUpperCase() + savedUser?.username.slice(1)}! </h1>
+        <div className='bg-amber-100 h-[100vh] py-10 p-10'>
+            <h1 className=' text-2xl font-bold'>Good Morning  {savedUser?.username.charAt(0).toUpperCase() + savedUser?.username.slice(1)}! </h1>
 
             {showModal && <NotesPopup showModal={showModal} onOpen={() => setShowModal(true)} onClose={() => setShowModal(false)} />}
             <div onClick={() => { restEdit(); setShowModal(true) }}
-                className="fixed cursor-pointer bottom-5 right-5 w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center text-2xl">
+                className="fixed cursor-pointer bottom-5 right-5 w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-2xl">
                 📝
             </div>
             <div >
                 {notes && notes.map((data, i) => (
                     <div className="w-64 m-10  bg-white rounded-md shadow-md border border-gray-300 overflow-hidden relative" key={i}>
                         <buttton className='flex justify-end p-1 cursor-pointer' onClick={() => handleDelete(data.id)}>❌</buttton>
-                        <div onClick={() => handleEdit(data)}>
+                        <div className='cursor-pointer' onClick={() => handleEdit(data)}>
 
                             <h1 className='bg-orange-300 p-3 '>{data?.title} </h1>
                             <p className='p-3 py-10'>{data?.content}</p>
