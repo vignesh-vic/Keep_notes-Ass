@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import Signup from './Signup';
+import { notesStore } from '../zustandStore';
 
 const Login = () => {
     const router = useRouter();
@@ -11,6 +12,7 @@ const Login = () => {
         password: '',
     });
 
+    const isloginState = notesStore((state) => state.toggleLogin);
 
     const handleChange = (e) => {
         setLoginData((prev) => ({
@@ -35,6 +37,7 @@ const Login = () => {
 
         if (email === savedUser.email && password === savedUser.password) {
             alert('Login successful!');
+            isloginState(true)
             router.push('/notes');
         } else {
             alert('Invalid credentials.');

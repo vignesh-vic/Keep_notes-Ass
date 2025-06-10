@@ -37,6 +37,7 @@ const Signup = ({ setIsLogin }) => {
         localStorage.setItem('signupData', JSON.stringify({ username, email, password }));
         alert('User data stored locally!');
 
+        setIsLogin(true)
         setFormData({
             username: '',
             email: '',
